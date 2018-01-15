@@ -9,6 +9,11 @@ MAINTAINER	rudolph "rudolph_zhong@qq.com"
 RUN	mkdir -p /z/java/jdk1.8.0_111 && \
 	mkdir -p /z/java/apache-tomcat-8.5.11 && \
 	cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+	apt-get update -y && \
+	apt-get install -y locales && \
+	echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen && \
+	locale-gen && \
+	echo "LANG=zh_CN.UTF-8" >> /etc/default/locale && \
 	echo 'root:password' | chpasswd
 
 ADD	tomcat8 /z/java/apache-tomcat-8.5.11
@@ -17,7 +22,9 @@ ADD	jdk8 /z/java/jdk1.8.0_111
 RUN	apt-get remove -y --auto-remove && \
 	rm -rf /var/lib/apt/lists/*
 
-ENV	LC_ALL en_US.utf8
+ENV	LANG zh_CN.UTF-8
+ENV	LANGUAGE zh_CN.UTF-8
+ENV	LC_ALL zh_CN.UTF-8
 
 ENV JAVA_HOME /z/java/jdk1.8.0_111
 ENV CATALINA_HOME /z/java/apache-tomcat-8.5.11
