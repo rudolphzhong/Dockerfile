@@ -14,27 +14,28 @@ RUN	mkdir -p /z/java/jdk1.8.0_111 && \
 	echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen && \
 	locale-gen && \
 	echo "LANG=zh_CN.UTF-8" >> /etc/default/locale && \
+	apt-get remove -y --auto-remove && \
+	rm -rf /var/lib/apt/lists/*
 	echo 'root:password' | chpasswd
 
+# ==> 复制tomcat+jdk目录
 ADD	tomcat8 /z/java/apache-tomcat-8.5.11
 ADD	jdk8 /z/java/jdk1.8.0_111
 
-RUN	apt-get remove -y --auto-remove && \
-	rm -rf /var/lib/apt/lists/*
-
+# ==> 配置编码环境变量
 ENV	LANG zh_CN.UTF-8
 ENV	LANGUAGE zh_CN.UTF-8
 ENV	LC_ALL zh_CN.UTF-8
-
-ENV JAVA_HOME /z/java/jdk1.8.0_111
-ENV CATALINA_HOME /z/java/apache-tomcat-8.5.11
-ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin
+# ==> 配置java环境变量
+ENV	JAVA_HOME /z/java/jdk1.8.0_111
+ENV	CATALINA_HOME /z/java/apache-tomcat-8.5.11
+ENV	PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin
 
 #暴露8080端口
-EXPOSE 8080
+EXPOSE	8080
 
 #启动时运行tomcat
-WORKDIR /z/java/apache-tomcat-8.5.11/bin
+WORKDIR	/z/java/apache-tomcat-8.5.11/bin
 ENTRYPOINT	./hostn.sh && \
 		./startup.sh && \
 		tail -f /z/java/apache-tomcat-8.5.11/logs/catalina.out
