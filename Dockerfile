@@ -15,7 +15,7 @@ RUN	mkdir -p /z/java/jdk1.8.0_111 && \
 	locale-gen && \
 	echo "LANG=zh_CN.UTF-8" >> /etc/default/locale && \
 	apt-get remove -y --auto-remove && \
-	rm -rf /var/lib/apt/lists/*
+	rm -rf /var/lib/apt/lists/* && \
 	echo 'root:password' | chpasswd
 
 # ==> 复制tomcat+jdk目录
