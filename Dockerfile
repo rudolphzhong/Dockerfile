@@ -10,7 +10,7 @@ RUN	mkdir -p /z/java/jdk1.8.0_111 && \
 	mkdir -p /z/java/apache-tomcat-8.5.11 && \
 	cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
 	apt-get update -y && \
-	apt-get install -y locales curl && \
+	apt-get install -y locales curl whiptail && \
 	echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen && \
 	locale-gen && \
 	echo "LANG=zh_CN.UTF-8" >> /etc/default/locale && \
@@ -41,5 +41,5 @@ ENTRYPOINT	./hostn.sh && \
 		tail -f /z/java/apache-tomcat-8.5.11/logs/catalina.out
 
 # ==> 容器健康检查
-HEALTHCHECK --interval=10s --timeout=5s \
+HEALTHCHECK --interval=5s --timeout=5s \
 	CMD	curl -fs http://127.0.0.1:8080 || exit 1
