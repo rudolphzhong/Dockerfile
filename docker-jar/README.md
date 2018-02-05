@@ -22,8 +22,8 @@ shell> docker build -t jar:openJDK8 .
 ```
 docker run -d --restart=always --name appname \
 	-p 8080:8080 \
-	-v /data/jar:/jar \
-	-v /data/logs:/logs \
+	-v /data/jar/jar:/jar \
+	-v /data/jar/logs:/logs \
     --ulimit nofile=20480:40960 jar:openJDK8
 ```
 

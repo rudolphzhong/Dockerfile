@@ -20,7 +20,7 @@ EXPOSE	8080
 
 #启动时运行tomcat
 WORKDIR	/jar
-ENTRYPOINT	java -jar *.jar >> /logs/jar_running.log 2>&1 & && \
+ENTRYPOINT	java -jar *.jar >> /logs/jar_running.log 2>&1 && \
 		tail -f /var/log/jar_running.log
 
 # ==> 容器健康检查
