@@ -18,5 +18,5 @@ ENV	LANG="zh_CN.UTF-8" \
 
 #启动时运行jar
 WORKDIR	/jar
-CMD	java -jar *.jar >> /logs/jar.log 2>&1 && \
+CMD	java -jar *.jar >> /logs/jar_running.log 2>&1 && \
 	tail -f /logs/jar_running.log
