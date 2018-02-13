@@ -7,8 +7,7 @@ MAINTAINER	rudolph "rudolph_zhong@qq.com"
 
 #环境准备
 RUN	mkdir -p /jar && \
-	mkdir -p /logs && \
-	echo 'root:password' | chpasswd
+	mkdir -p /logs
 
 # ==> 配置编码、时区变量
 ENV	LANG="zh_CN.UTF-8" \
