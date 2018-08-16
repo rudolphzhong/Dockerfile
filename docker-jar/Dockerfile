@@ -1,5 +1,5 @@
 # ==> 使用的基础镜像
-FROM	debian:latest
+FROM	debian:wheezy
 
 # ==> 作者信息
 MAINTAINER	rudolph "rudolph_zhong@qq.com"
