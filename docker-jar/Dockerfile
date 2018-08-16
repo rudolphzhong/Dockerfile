@@ -10,7 +10,7 @@ RUN	mkdir -p /jar && \
 	mkdir -p /usr/java && \
 	cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
 	apt-get update -y && \
-	apt-get install -y locales curl whiptail && \
+	apt-get install -y locales curl whiptail procpc htop telnet && \
 	echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen && \
 	locale-gen && \
 	echo "LANG=zh_CN.UTF-8" >> /etc/default/locale && \
