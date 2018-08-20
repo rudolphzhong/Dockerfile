@@ -19,8 +19,8 @@ RUN	mkdir -p /z/java/jdk1.8.0_111 && \
 	echo 'root:password' | chpasswd
 
 # ==> 复制tomcat+jdk目录
-ADD	tomcat8 /z/java/apache-tomcat-8.5.11
-ADD	jdk8 /z/java/jdk1.8.0_111
+ADD	apache-tomcat-8.5.11 /z/java/apache-tomcat-8.5.11
+ADD	jdk1.8.0_111 /z/java/jdk1.8.0_111
 
 # ==> 配置编码环境变量
 ENV	LANG zh_CN.UTF-8
