@@ -1,4 +1,5 @@
-# ==> 使用的基础镜像 FROM	debian:wheezy
+# ==> 使用的基础镜像
+FROM	debian:wheezy
 
 # ==> 作者信息
 MAINTAINER	Rudolph Zhong "rudolph.zhong@zxfamily.top"
