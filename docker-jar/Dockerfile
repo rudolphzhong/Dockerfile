@@ -1,8 +1,7 @@
-# ==> 使用的基础镜像
-FROM	debian:wheezy
+# ==> 使用的基础镜像 FROM	debian:wheezy
 
 # ==> 作者信息
-MAINTAINER	rudolph "rudolph_zhong@qq.com"
+MAINTAINER	Rudolph Zhong "rudolph.zhong@zxfamily.top"
 
 # ==> 环境准备
 RUN	mkdir -p /jar && \
@@ -31,5 +30,5 @@ ENV	LANG="zh_CN.UTF-8" \
 
 # ==> 启动时运行jar
 WORKDIR	/jar
-CMD	/usr/java/jdk1.8.0_111/bin/java -jar ${JAVA_OPTS} *.jar >> /home/logs/jar_running.log 2>&1 && \
+CMD	/usr/java/jdk1.8.0_111/bin/java -jar ${JAVA_OPTS} ${CATALINA_OPTS} *.jar >> /home/logs/jar_running.log 2>&1 && \
 	tail -f /home/logs/jar_running.log
