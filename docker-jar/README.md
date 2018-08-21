@@ -17,8 +17,8 @@ shell> git clone https://github.com/rudolphzhong/Dockerfile.git && cd Dockerfile
 shell> docker build -t jar-jdk8:latest .
 ```
 
-**创建容器例子**
-    将下方java.rmi.server.hostname com.sun.management.jmxremote.port com.sun.management.jmxremote.rmi.port改为相应的ip和port
+**创建容器例子**  
+将下方java.rmi.server.hostname com.sun.management.jmxremote.port com.sun.management.jmxremote.rmi.port改为相应的ip和port
 
 ```
 docker create -p 80:8080 \
